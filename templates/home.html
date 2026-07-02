@@ -115,8 +115,8 @@
 
 <div class="container">
 
-    <h1>🏠 Boston House Price Prediction Model</h1>
-    <p>Enter all feature values to predict the house price.</p>
+    <h1>🏠 Boston House Price Predictor </h1>
+    <p>Fill in the housing features below to estimate the property's value.</p>
 
     <form action="{{ url_for('predict') }}" method="POST">
 
@@ -191,11 +191,18 @@
 
     </form>
 
-    {% if prediction_text %}
-    <div class="result">
-        {{prediction_text}}
-    </div>
-    {% endif %}
+{% if prediction_text %}
+<div class="result">
+    <h2>{{ prediction_text }}</h2>
+    <hr style="margin:15px 0;">
+
+    <p style="font-size:14px; color:#555; line-height:1.6;">
+        <strong>Note:</strong> This prediction is based on the historical Boston Housing dataset.
+        The displayed value has been converted from <strong>thousands of US dollars</strong> to
+        <strong>US dollars</strong> for easier interpretation.
+    </p>
+</div>
+{% endif %}
 
 </div>
 
